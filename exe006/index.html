@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de temperaturas</title>
+    <style>
+        body {
+            font: normal 15pt Arial;
+            text-align:  center;
+        }
+        input {
+            width: 200px;
+            height: 100px;
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Temperaturas</h1>
+    <input type="button" value="Converter" id="acao">
+    <p>Clique no botão acima para iniciar.</p>
+    <p></p>
+    <p></p>
+
+    <script>
+        var a = window.document.querySelector('input#acao')
+        a.addEventListener('click', clicar)
+        var p1 = window.document.getElementsByTagName('p')[0]
+        var p2 = window.document.getElementsByTagName('p')[1]
+        var p3 = window.document.getElementsByTagName('p')[2]
+
+        function clicar() {
+            var temp = Number(window.prompt('Digite uma temperatura em °C (Celcius)'))
+            var k = temp + 273.15
+            var f = (temp * (9/5)) + 32 
+            p1.innerText = `A temperatura de ${temp.toFixed(1).replace('.', ',')}°C, corresponde a...`
+            p1.style.fontSize = '1.5em'
+            p1.style.fontWeight = 'bold'
+            p2.innerText = `${k.toFixed(2).replace('.', ',')}°K (Kelvin)`
+            p3.innerText = `${f.toFixed(2).replace('.', ',')}°F (Fahrenheit)`
+        }
+    </script>
+</body>
+</html>
