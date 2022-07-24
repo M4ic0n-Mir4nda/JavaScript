@@ -20,41 +20,31 @@
     <h1>Conversor de Medidas</h1>
     <input type="button" value="Converter" id="acao">
     <p><strong>Clique no botão acima para iniciar.</strong></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
+    <div id="p"></div>
 
     <script>
         var a = window.document.querySelector('input#acao')
-        var p0 = window.document.getElementsByTagName('p')[0]
-        var p1 = window.document.getElementsByTagName('p')[1]
-        var p2 = window.document.getElementsByTagName('p')[2]
-        var p3 = window.document.getElementsByTagName('p')[3]
-        var p4 = window.document.getElementsByTagName('p')[4]
-        var p5 = window.document.getElementsByTagName('p')[5]
-        var p6 = window.document.getElementsByTagName('p')[6]
         a.addEventListener('click', clicou)
 
         function clicou() {
             var distancia = Number(window.prompt('Digite uma distância em metro(m)'))
-            p0.innerText = `A distância de ${distancia} metros, corresponde a...`
-            p0.style.fontWeight = 'bold'
-            p0.style.fontSize = '18pt'
+            var linha = window.document.querySelector('div#p')
+            var iniciar = window.document.getElementsByTagName('p')[0]
+            iniciar.innerText = `A distância de ${distancia} metros, corresponde a...`
+            iniciar.style.fontWeight = 'bold'
+            iniciar.style.fontSize = '18pt'
             var km = distancia / 1000
             var hm = distancia / 100
             var dam = distancia / 10
             var dm = distancia / 100
             var cm = distancia / 10
             var mm = distancia / 1
-            p1.innerText = `${km.toFixed(3).replace('.', ',')} quilômetros (Km)`
-            p2.innerText = `${hm.toFixed(3).replace('.', ',')} hectômetros (Hm)`
-            p3.innerText = `${dam.toFixed(3).replace('.', ',')} decâmetros (Dam)`
-            p4.innerText = `${dm.toFixed(4)} decimetros (dm)`
-            p5.innerText = `${cm} centímetros (cm)`
-            p6.innerText = `${mm.toFixed(3)} milímetros (mm)`
+            linha.innerHTML += `<p>${km.toFixed(3).replace('.', ',')} quilômetros (Km)</p>`
+            linha.innerHTML += `<p>${hm.toFixed(3).replace('.', ',')} hectômetros (Hm)</p>`
+            linha.innerHTML += `<p>${dam.toFixed(3).replace('.', ',')} decâmetros (Dam)</p>`
+            linha.innerHTML += `<p>${dm.toFixed(4)} decimetros (dm)</p>`
+            linha.innerHTML += `<p>${cm} centímetros (cm)</p>`
+            linha.innerHTML += `<p>${mm.toFixed(3)} milímetros (mm)</p>`
         }
         
     </script>

@@ -21,25 +21,24 @@
     <h1>Conversor de Temperaturas</h1>
     <input type="button" value="Converter" id="acao">
     <p>Clique no botão acima para iniciar.</p>
-    <p></p>
-    <p></p>
+    <div id="p"></div>
 
     <script>
         var a = window.document.querySelector('input#acao')
         a.addEventListener('click', clicar)
-        var p1 = window.document.getElementsByTagName('p')[0]
-        var p2 = window.document.getElementsByTagName('p')[1]
-        var p3 = window.document.getElementsByTagName('p')[2]
+        var linha = window.document.getElementsByTagName('p')[0]
+
 
         function clicar() {
             var temp = Number(window.prompt('Digite uma temperatura em °C (Celcius)'))
+            var parag = window.document.getElementById('p')
             var k = temp + 273.15
             var f = (temp * (9/5)) + 32 
-            p1.innerText = `A temperatura de ${temp.toFixed(1).replace('.', ',')}°C, corresponde a...`
-            p1.style.fontSize = '1.5em'
-            p1.style.fontWeight = 'bold'
-            p2.innerText = `${k.toFixed(2).replace('.', ',')}°K (Kelvin)`
-            p3.innerText = `${f.toFixed(2).replace('.', ',')}°F (Fahrenheit)`
+            linha.innerText = `A temperatura de ${temp.toFixed(1).replace('.', ',')}°C, corresponde a...`
+            linha.style.fontSize = '1.5em'
+            linha.style.fontWeight = 'bold'
+            parag.innerHTML += `<p>${k.toFixed(2).replace('.', ',')}°K (Kelvin)</p>`
+            parag.innerHTML += `<p>${f.toFixed(2).replace('.', ',')}°F (Fahrenheit)</p>`
         }
     </script>
 </body>
