@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: normal 18pt Arial;
+    background-color: rgb(224, 224, 224);
+}
+
+h1 {
+    font-size: 35px;
+}
+
+main {
+    margin-top: 200px;
+    width: 300px;
+    margin: 230px auto;
+}
+
+#form-group {
+    padding: 5px;
+}
+
+.situacao {
+    text-align: center;
+    font-size: 16px;
+    color: rgb(146, 146, 146);
+    height: 30px;
+    border-radius: 3px;
+    width: 200px;
+    border: 0px solid rgb(190, 190, 190);
+    background-color: rgb(248, 247, 247);
+}
+
+#media {
+    text-align: center;
+    color: rgb(146, 146, 146);
+    height: 30px;
+    border-radius: 3px;
+    width: 200px;
+    border: 1px solid rgb(190, 190, 190);
+    background-color: rgb(248, 247, 247);
+}
+
+#prova {
+    text-align: center;
+    height: 30px;
+    border-radius: 3px;
+    width: 200px;
+    border: 1px solid rgb(190, 190, 190);
+    background-color: rgb(248, 247, 247);
+}
+
+#nota1, #nota2, #nota3, #nota4 {
+    width: 100px;
+    height: 40px;
+    border-radius: 3px;
+    margin-top: 5px;
+    border: 1px solid rgb(190, 190, 190);
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.botao {
+    width: 80px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12pt;
+    cursor: pointer;
+}
+
+#btnCalcular {
+    background-color: rgba(1, 1, 167, 0.856);
+    color: rgba(255, 255, 255, 0.781);
+    border: 1px solid rgba(1, 1, 167, 0.856);
+    font-weight: bold;
+}
+
+#btnCalcularProva {
+    background-color: rgba(1, 1, 167, 0.856);
+    color: rgba(255, 255, 255, 0.781);
+    border: 1px solid rgba(1, 1, 167, 0.856);
+    font-weight: bold;
+    width: 80px;
+    margin-top: 10px;
+}
+
+#btnLimpar {
+    width: 70px;
+    background-color: rgba(241, 65, 1, 0.925);
+    color: rgba(255, 255, 255, 0.733);
+    border: 1px solid rgba(241, 65, 1, 0.616);
+    font-weight: bold;
+
+}
+
+.res p {
+    margin-right: 105px;
+}
+
+.aprovado {
+    background: #64dd17;
+    color: rgb(27, 27, 27);
+    font-weight: bold;
+}
+
+.recuperacao {
+    background: #ffc107;
+    color: rgb(27, 27, 27);
+    font-weight: bold;
+}
+
+.reprovado {
+    background: #f44336;
+    color: rgb(27, 27, 27);
+    font-weight: bold;
+}
+
+.alerta {
+    background-color: #f44336;
+    margin-right: 20px;
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 5px;
+}

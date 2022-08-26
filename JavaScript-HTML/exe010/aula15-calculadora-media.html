@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 15 de JS Calcular Média</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="tela-principal">
+        <section id="formulario">
+            <section id="notas">
+                <h1 id="titulo">Calcular Média</h1>
+                <form action="#" method="POST">
+                    <div id="form-group">
+                        <label for="nota1" class="nota1">Nota 1</label>
+                        <input type="number" name="nota1" id="nota1" min="0.0" max="10.0" step="0.1" autofocus required onblur="validarAc1(this)">
+                    </div>
+                    <div id="form-group">
+                        <label for="nota2" class="nota2">Nota 2</label>
+                        <input type="number" name="nota2" id="nota2" min="0.0" max="10.0" step="0.1" required onblur="validarAc2(this)">
+                    </div>
+                    <div id="form-group">
+                        <label for="nota2" class="nota3">Nota 3</label>
+                        <input type="number" name="nota3" id="nota3" min="0.0" max="10.0" step="0.1" required onblur="validarAc3(this)">
+                    </div>
+                    <div id="form-group">
+                        <label for="nota2" class="nota4">Nota 4</label>
+                        <input type="number" name="nota4" id="nota4" min="0.0" max="10.0" step="0.1" required onblur="validarAc4(this)">
+                    </div>
+                </form>
+            </section>
+            <section id="sit">
+                <div id="form-group" class="res">
+                    <p>Prova</p>
+                    <input type="number" name="prova" id="prova" onblur="validarNumero(this)">
+                </div>
+                <form action="" method="POST">
+                    <div id="form-group">
+                        <button
+                            class="botao"
+                            id="btnCalcular"
+                            type="submit"
+                            >
+                            Calcular
+                        </button>
+                        <button
+                            class="botao"
+                            id="btnLimpar"
+                            type="reset"
+                            >
+                            Limpar
+                        </button>
+                    </div>
+                </form>
+             </section>
+        </section>
+        <section>
+            <div id="form-group" class="res">
+                <p>Média</p>
+                <input type="number" name="media" id="media" disabled>
+            </div>
+        </section>
+        <div id="form-group" class="sitFinal">
+            <input type="text" name="situacao" class="situacao" value="Situação Final" disabled>
+            <p id="aviso"></p>
+        </div>
+    </main>
+    <script src="aula15-js"></script>
+</body>
+</html>
