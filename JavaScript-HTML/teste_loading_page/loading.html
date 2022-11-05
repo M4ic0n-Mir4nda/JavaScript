@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #loading {
+            width: 100px;
+            height: 100px;
+            margin: 290px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading" style="display: block">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Loadingsome.gif" style="width: 250px; height: 250px;" />
+    </div>   
+    <div id="conteudo" style="display: none">
+      Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+     </div>
+</body>
+    <script>
+        var i = setInterval(function () {   
+        clearInterval(i);
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("conteudo").style.display = "inline";
+
+    }, 2000);
+    </script>
+</html>
