@@ -1,0 +1,190 @@
+let cxNota1    = document.querySelector('#nota1')
+let cxNota2    = document.querySelector('#nota2')
+let cxNota3    = document.querySelector('#nota3')
+let cxNota4    = document.querySelector('#nota4')
+
+let formulario = document.querySelector('form')
+let media      = document.querySelector('#media')
+
+let btnEnviar  = document.querySelector('#btnCalcular')
+let btnLimpar  = document.querySelector('#btnLimpar')
+let btnEnviarProva = document.querySelector('#btnCalcularProva')
+
+let situacao   = document.querySelector('.situacao')
+let aviso      = document.querySelector('#aviso')
+
+let prova      = document.querySelector('#prova')
+
+prova.disabled = true
+cxNota2.disabled = true
+cxNota3.disabled = true
+cxNota4.disabled = true
+
+btnEnviar.addEventListener('click', function(e) {
+    if (cxNota1.value.length <= 0 || cxNota2.value.length <= 0 || cxNota3.value.length <= 0 || cxNota4.value.length <= 0 || prova.value.length <= 0) {
+        alert('Digite suas notas!')
+        e.preventDefault()
+    } else {
+        let nota1 = Number(cxNota1.value)
+        let nota2 = Number(cxNota2.value)
+        let nota3 = Number(cxNota3.value)
+        let nota4 = Number(cxNota4.value)
+
+        let mediaAcs  = notaAcs(nota1 + nota2 + nota3 + nota4)
+
+        let notaProva = Number(prova.value)
+        let notaFinal = (mediaAcs + notaProva) / 2
+
+        console.log(notaFinal)
+
+        media.value = notaFinal
+
+        let resultado   = processamento(notaFinal)
+        situacao.value  = resultado
+        e.preventDefault()
+    }    
+})
+
+btnLimpar.addEventListener('click', function() {
+    formulario.reset()
+    media.value = ''
+    prova.value = ''
+    prova.disabled = true
+    cxNota2.disabled = true
+    cxNota3.disabled = true
+    cxNota4.disabled = true
+    situacao.value = 'Situação Final'
+    situacao.classList.remove('reprovado')
+    situacao.classList.remove('recuperacao')
+    situacao.classList.remove('aprovado')
+})
+
+
+function processamento(notaFinal) {
+    let sit = ''
+    
+    if (notaFinal >= 7 && notaFinal <= 10) {
+        situacao.classList.remove('reprovado')
+        situacao.classList.remove('recuperacao')
+        situacao.classList.add('aprovado')
+        sit = 'Aprovado(a)'
+    } else if (notaFinal >= 5 && notaFinal <= 6.9){
+        situacao.classList.remove('aprovado')
+        situacao.classList.remove('reprovado')
+        situacao.classList.add('recuperacao')
+        sit = 'Recuperação'
+    } else {
+        situacao.classList.remove('aprovado')
+        situacao.classList.remove('recuperacao')
+        situacao.classList.add('reprovado')
+        sit = 'Reprovado(a)'
+    }
+    return sit
+}
+
+function validarAc1() {
+    let nota1 = cxNota1.value
+    if (nota1 < 0 ||  nota1 > 10) {
+        formulario.reset()
+        prova.disabled = true
+        cxNota2.disabled = true
+        cxNota3.disabled = true
+        cxNota4.disabled = true
+        aviso.classList.add('alerta')
+        aviso.textContent = 'Digite uma nota entre 0.0 e 10.0'
+        setTimeout(function() { //Função anonima que vai ser executada por alguns segundas Ex: 2000 = 2 seg
+            aviso.textContent = '' //Vai ser removido apos o tempo
+            aviso.classList.remove('alerta')
+        }, 2000);
+    } else {
+        cxNota2.disabled = false
+        function notaProva() {
+            cxNota2.focus()
+        }
+        notaProva()
+    }
+}
+
+function validarAc2() {
+    let nota2 = cxNota2.value
+    if (nota2 < 0 ||  nota2 > 10) {
+        formulario.reset()
+        prova.disabled = true
+        cxNota2.disabled = true
+        cxNota3.disabled = true
+        cxNota4.disabled = true
+        aviso.classList.add('alerta')
+        aviso.textContent = 'Digite uma nota entre 0.0 e 10.0'
+        setTimeout(function() { //Função anonima que vai ser executada por alguns segundas Ex: 2000 = 2 seg
+            aviso.textContent = '' //Vai ser removido apos o tempo
+            aviso.classList.remove('alerta')
+        }, 2000);
+    } else {
+        cxNota3.disabled = false
+        function notaProva() {
+            cxNota3.focus()
+        }
+        notaProva()
+    }
+}
+
+function validarAc3() {
+    let nota3 = cxNota3.value
+    if (nota3 < 0 ||  nota3 > 10) {
+        formulario.reset()
+        prova.disabled = true
+        cxNota2.disabled = true
+        cxNota3.disabled = true
+        cxNota4.disabled = true
+        aviso.classList.add('alerta')
+        aviso.textContent = 'Digite uma nota entre 0.0 e 10.0'
+        setTimeout(function() { //Função anonima que vai ser executada por alguns segundas Ex: 2000 = 2 seg
+            aviso.textContent = '' //Vai ser removido apos o tempo
+            aviso.classList.remove('alerta')
+        }, 2000);
+    } else {
+        cxNota4.disabled = false
+        function notaProva() {
+            cxNota4.focus()
+        }
+        notaProva()
+    }
+}
+
+function validarAc4() {
+    let nota4 = cxNota4.value
+    if (nota4 < 0 ||  nota4 > 10) {
+        formulario.reset()
+        prova.disabled = true
+        cxNota2.disabled = true
+        cxNota3.disabled = true
+        cxNota4.disabled = true
+        aviso.classList.add('alerta')
+        aviso.textContent = 'Digite uma nota entre 0.0 e 10.0'
+        setTimeout(function() { //Função anonima que vai ser executada por alguns segundas Ex: 2000 = 2 seg
+            aviso.textContent = '' //Vai ser removido apos o tempo
+            aviso.classList.remove('alerta')
+        }, 2000);
+    } else {
+        prova.disabled = false
+        function notaProva() {
+            prova.focus()
+        }
+        notaProva()
+    }
+}
+
+function notaAcs(n1, n2, n3, n4) {
+    let nota1 = Number(cxNota1.value)
+    let nota2 = Number(cxNota2.value)
+    let nota3 = Number(cxNota3.value)
+    let nota4 = Number(cxNota4.value)
+    return ((nota1 + nota2 + nota3 + nota4) / 4)
+}
+
+
+
+
+
+
+

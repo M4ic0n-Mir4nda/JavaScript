@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 11 de JS</title>
+</head>
+<!-- onScroll='rolouPagina()' -->
+<body onLoad='carregou()'>
+    <main class="tela-principal">
+        <h1 id='titulo' onMouseOver='focou()'>Aula 11</h1>
+        <section class='conteudo'>
+            <article class='box'>
+            </article>
+            <article class='box'>
+            </article>
+        <button id='btn1' class='botao'>Box 1</button>
+        <button id='btn2' class='botao'>Box 2</button>
+        </section>
+            <hr />
+        <form action="">
+            <!-- onFocus: Da um sentido de foco quando é selecionado -->
+            <!-- onFocusOut: Já é ao contrario aqui quando é tirada o foco do campo que você pode executar uma ação -->
+            <!-- onKeyPress: Esse evento acontece quando você pressiona a tecla e solta -->
+            <input
+                id='cxtexto'
+                type="text"
+                placeholder="Digite seu nome"
+                onFocus='focoNoCampo()' 
+                onFocusOut='semFocoNoCampo()'
+                onKeyPress='avisarQueTeclou()'
+            />
+            <button id='btn3' class='botao' type='submit'>Enviar</button>
+        </form>
+    </main>
+    <script src="js/aula05.js"></script>
+</body>
+</html>

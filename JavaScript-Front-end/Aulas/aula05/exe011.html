@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Países</title>
+</head>
+<body>
+    <h1>De qual país você é?</h1>
+    Digite de qual país você é:<input type="text" name="txtname" id="txtname">
+    <input type="button" value="Verificar" onclick="clicar()">
+    <div id="p"></div>
+
+    <script>       
+        function clicar() {
+            var pais = window.document.getElementById('txtname').value // <---- Sempre usar .value em textos
+            var a = window.document.querySelector('div#p')
+            if (pais == 'Brasil') {
+                a.innerHTML += '<p>Você é Brasileiro</p>'
+            }else {
+                a.innerHTML += '<p>Você é Estrangeiro</p>'
+            }
+        }
+    </script>
+</body>
+</html>

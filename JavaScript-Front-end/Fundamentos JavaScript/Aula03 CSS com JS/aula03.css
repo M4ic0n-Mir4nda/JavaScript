@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vw;
+    background: #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    min-width: 960px;
+    max-width: 960px;
+    min-height: 100vw;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;  
+}
+
+section {
+    width: 960px;
+    margin: 0 auto;
+}
+
+h1, section, article {
+    margin-bottom: 1rem;
+}
+
+#botoes {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+/* botoes */
+button {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0.625rem;
+    cursor: pointer;
+}
+
+/* botao light */
+#btlight {
+    background: #ededed;
+    color: black;
+}
+
+/* botao dark */
+#btdark {
+    background-color: #263238;
+    color: #fff;
+}
+
+/* articles com a class box */
+.box {
+    padding: 0.625rem;
+    border-radius: 8px;
+}
+
+/* Estilos para serem usados via JS */
+.light {
+    background: #fff;
+    color: #191919;
+}
+
+.dark {
+    background: #222;
+    color: #fff;
+}
+
+.azul {
+    background: #1a237e;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.amarelo {
+    background: #ffc107;
+    color: #fff;
+}

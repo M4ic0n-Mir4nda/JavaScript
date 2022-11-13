@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Medidas</title>
+    <style>
+        body {
+            font: normal 15pt Arial;
+        }
+        input {
+            width: 150px;
+            height: 100px;
+            font-size: 15pt;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Medidas</h1>
+    <input type="button" value="Converter" id="acao">
+    <p><strong>Clique no botão acima para iniciar.</strong></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <script>
+        var a = window.document.querySelector('input#acao')
+        var p0 = window.document.getElementsByTagName('p')[0]
+        var p1 = window.document.getElementsByTagName('p')[1]
+        var p2 = window.document.getElementsByTagName('p')[2]
+        var p3 = window.document.getElementsByTagName('p')[3]
+        var p4 = window.document.getElementsByTagName('p')[4]
+        var p5 = window.document.getElementsByTagName('p')[5]
+        var p6 = window.document.getElementsByTagName('p')[6]
+        a.addEventListener('click', clicou)
+
+        function clicou() {
+            var distancia = Number(window.prompt('Digite uma distância em metro(m)'))
+            p0.innerText = `A distância de ${distancia} metros, corresponde a...`
+            p0.style.fontWeight = 'bold'
+            p0.style.fontSize = '18pt'
+            var km = distancia / 1000
+            var hm = distancia / 100
+            var dam = distancia / 10
+            var dm = distancia / 100
+            var cm = distancia / 10
+            var mm = distancia / 1
+            p1.innerText = `${km.toFixed(3).replace('.', ',')} quilômetros (Km)`
+            p2.innerText = `${hm.toFixed(3).replace('.', ',')} hectômetros (Hm)`
+            p3.innerText = `${dam.toFixed(3).replace('.', ',')} decâmetros (Dam)`
+            p4.innerText = `${dm.toFixed(4)} decimetros (dm)`
+            p5.innerText = `${cm} centímetros (cm)`
+            p6.innerText = `${mm.toFixed(3)} milímetros (mm)`
+        }
+        
+    </script>
+</body>
+</html>
