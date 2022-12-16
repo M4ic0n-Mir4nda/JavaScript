@@ -47,5 +47,14 @@ const edFolha = [
       preco: 40
     }
   ];
+
+  const meiaLista = edGalho.slice(0, 3)
+  const meiaLista1 = edGalho.slice(3, 5)
+  const meiaLista2 = edGalho.slice(5)
+
+
+  console.log(meiaLista)
+  console.log(meiaLista1)
+  console.log(meiaLista2)
   
   module.exports = { edFolha, edGalho };

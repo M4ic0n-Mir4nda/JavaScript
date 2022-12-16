@@ -1,4 +1,4 @@
-const {edFolha, edGalho} = require('./livraria');
+const {edFolha, edGalho} = require('./livroOrdenados');
 
 function listaCompleta(lista1, lista2) {
     const novaLista = [];
@@ -16,7 +16,7 @@ function listaCompleta(lista1, lista2) {
             novaLista.push(lista2[atualLista2]);
             atualLista2++;
         }
-        
+
         atual++
     };
 
