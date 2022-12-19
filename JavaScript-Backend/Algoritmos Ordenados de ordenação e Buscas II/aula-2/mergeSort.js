@@ -18,22 +18,22 @@ function ordenarLivrosDesordenados(lista) {
     };
 
     if (listaDois[0].preco < listaUm[0].preco && listaUm[1].preco) {
-        let indiceAtual = listaUm[0];
-        let indiceMenor = listaUm[1];
+        let primeiroIndice = listaUm[0];
+        let segundoIndice = listaUm[1];
 
         listaUm[0] = listaDois[0];
-        listaUm[1] = indiceAtual;
-        listaUm[2] = indiceMenor;
+        listaUm[1] = primeiroIndice;
+        listaUm[2] = segundoIndice;
     } else {
         listaUm.push(listaDois[0]);
     };
 
     if (listaTres[0].preco > listaTres[1].preco) {
-        let indiceAtual = listaTres[0];
-        let indiceMenor = listaTres[1];
+        let primeiroIndice = listaTres[0];
+        let segundoIndice = listaTres[1];
 
-        listaTres[0] = indiceMenor;
-        listaTres[1] = indiceAtual;
+        listaTres[0] = segundoIndice;
+        listaTres[1] = primeiroIndice;
     };
 
     let atual = 0;
