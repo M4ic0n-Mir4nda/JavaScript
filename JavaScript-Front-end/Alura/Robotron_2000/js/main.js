@@ -1,18 +1,20 @@
-const subtrair = document.querySelector('#subtrair');
-const somar = document.querySelector('#somar');
-const braco = document.querySelector('#braco');
-const controle = document.querySelectorAll('.controle-ajuste')
+const controle = document.querySelectorAll('[data-controle]')
+                                        // Busca os valores no html com data atributte
 
 controle.forEach( (elemento) => {
     elemento.addEventListener('click', (evento) => {
-        manipulaDados(evento.target.textContent)
+                    // dataset Busca o elemento data no html - // parentNode busca exatamente qual foi a classe clicada
+        manipulaDados(evento.target.dataset.controle, evento.target.parentNode)
     })
 })
 
-function manipulaDados(operacao) {
+function manipulaDados(operacao, controle) {
+            // Busca só o valor clicado - // Busca os valores no html com data atributte
+    const peca = controle.querySelector('[data-contador]');
+
     if (operacao === '-') {
-        braco.value--;
+        peca.value--;
     } else {
-        braco.value++;
+        peca.value++;
     }
 };
