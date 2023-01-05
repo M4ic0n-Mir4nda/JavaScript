@@ -1,0 +1,19 @@
+Começamos observando os padrões na sequência que queremos capturar: todos os links começam da mesma forma, a partir de http, e terminam na primeira /. Então podemos começar a expressão dessa forma:
+
+https?: a sequência exata de letras http e s ocorrendo de 0 até 1 vez.
+
+Em seguida temos :// que sempre ocorre da mesma forma:
+
+https?:\/\/: como / é um meta-char, temos que usar a barra invertida para “escapar” este char, ou seja, para que seja considerado literalmente e não como meta-char.
+
+A primeira classe, ou seja, o primeiro conjunto de caracteres antes do ., permanece o mesmo que usamos na aula:
+
+https?:\/\/[^\s$.?#].: todos os caracteres exceto $, ., ?, # e sem espaços em branco \s.
+
+Agora a expressão deve parar que capturar os caracteres logo após a primeira /, então a segunda classe de caracteres vai ficar um pouco diferente:
+
+https?:\/\/[^\s$.?#].[^\s\)]: após o ponto, todos os caracteres com exceção de \s (espaços em branco) e fechamento de parênteses \) serão capturados pela expressão. Lembrando que ) deve ser “escapado” para ser considerado como um caractere e não um meta-char.
+
+Agora podemos finalizar:
+
+https?:\/\/[^\s$.?#].[^\s\)]*: acrescentamos * ao final, para que a expressão localize 0 ou mais ocorrências consecutivas entre . e ). Ou seja, para que a expressão localize tanto https://dominio.com/ quanto https://www.dominio.com.br/ ou http://www.outrodominio.com.br/recurso/recurso.
