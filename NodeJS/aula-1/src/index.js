@@ -12,7 +12,7 @@ function extraiLinks(texto) {
 }
 
 function trataErro(erro) {
-    console.log(erro);
+    //console.log(erro);
     throw new Error(chalk.red(erro.code, 'não há arquivo no diretório'));
 // throw é usado para jogar para fora e tratar os erros no código
 }
