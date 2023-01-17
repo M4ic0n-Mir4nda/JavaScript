@@ -12,6 +12,6 @@ function promessa(bool) {
     console.log(textoResult);
    }
    
-   promessa(false)
+   promessa(true)
     .then((texto) => exibeResposta(texto))
    // sucesso na promessa

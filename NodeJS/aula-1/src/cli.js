@@ -29,8 +29,8 @@ async function processaTexto(argumentos) {
         fs.lstatSync(caminho);
     } catch (erro) {
        if (erro.code === 'ENOENT') {
-        console.log('arquivo ou diretório não existe');
-        return;
+            console.log('arquivo ou diretório não existe');
+            return;
        }
     }
 
@@ -40,8 +40,8 @@ async function processaTexto(argumentos) {
         imprimeLista(valida, resultado)
         // essa função da lib fs serve para verificar se o argumento passado é um diretorio e retorna true ou false
     } else if (fs.lstatSync(caminho).isDirectory()) {
-        // readdir le um caminho de diretorio e é passado como parametro o que está chegando nele
-        const arquivos = await fs.promises.readdir(caminho)
+        // readdir le um caminho de diretorio e retorna os nomes dos arquivos que estão dentro do caminho do diretorio
+        const arquivos = await fs.promises.readdir(caminho);
         arquivos.forEach(async (nomeDeArquivo) => {
             const lista = await pegaArquivo(`${caminho}/${nomeDeArquivo}`)
             imprimeLista(valida, lista, nomeDeArquivo);
