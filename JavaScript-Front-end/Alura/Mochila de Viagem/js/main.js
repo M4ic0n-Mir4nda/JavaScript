@@ -11,6 +11,8 @@ form.addEventListener('submit', (event) => {
     const nomeItem = event.target.elements['nome']
     const quantidadeItem = event.target.elements['quantidade']
 
+
+    // Busca o elemento e verifica se o nome existe, se exister recebe o nome se não undefined
     const existe = itens.find( elemento => elemento.nome === nomeItem.value )
     
     const itemAtual = {
@@ -21,8 +23,12 @@ form.addEventListener('submit', (event) => {
     if (existe) {
         itemAtual.id = existe.id
         atualizaElemento(itemAtual)
+
+        // Busca exatamente o elemento que é exatamente igual ao existe id
+        itens[itens.findIndex(elemento => elemento.id === existe.id)] = itemAtual
     } else {
-        itemAtual.id = itens.length
+                        // Se o tamanho do array for 0 cai no false e adiciona 0 se não cai no true
+        itemAtual.id = itens[itens.length - 1] ? itens[itens.length - 1].id + 1 : 0
 
         criaElemento(itemAtual)
 
@@ -46,7 +52,11 @@ function criaElemento(item) {
     numeroItem.innerHTML = item.quantidade
     numeroItem.dataset.id = item.id 
     novoItem.appendChild(numeroItem)
+
     novoItem.innerHTML += item.nome
+
+    // Adiciona um elemento criado pelo JS
+    novoItem.appendChild(botaoDeleta(item.id))
 
     lista.appendChild(novoItem)
 
@@ -55,4 +65,25 @@ function criaElemento(item) {
 
 function atualizaElemento(item) {
     document.querySelector(`[data-id="${item.id}"]`).innerHTML = item.quantidade
+}
+
+function botaoDeleta(id) {
+    const elementoBotao = document.createElement('button');
+    elementoBotao.innerText = "X";
+
+    elementoBotao.addEventListener('click', function() {
+        deletaElemento(this.parentNode, id);
+    })
+
+    return elementoBotao;
+}
+
+function deletaElemento(tag, id) {
+    // remove o elemento pai do elemento
+    tag.remove();
+                    // Procura o elemento dentro do array e retorna o index do elemento deletando ele
+    itens.splice(itens.findIndex( elemento => elemento.id === id), 1)
+
+    localStorage.setItem("itens", JSON.stringify(itens))
+    
 }
