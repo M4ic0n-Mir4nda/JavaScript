@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* form {
+    display: none;
+} */
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 2em;
+    padding-bottom: 5px;
+}
+
+input {
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    width: 100%;
+}
+
+.btn-envia {
+    margin-top: 30px;
+    padding: 15px;
+    width: 150px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgb(58, 58, 58);
+    color: white;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 25px;
+}
+  
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 10px; 
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd; 
+}
+
+/* #cadastrados {
+    display: none;
+} */
+
+.conteiner-box {
+    width: 80%;
+    background-color: #e6e6e6;
+    padding: 70px;
+    border-radius: 10px;
+}
+.conteiner-global {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-global {
+    width: 100%;
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.conteiner-box-table {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.buttonExcluir {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    margin: 5px auto;
+    background-color: rgb(250, 48, 48);
+    color: white;
+    border: none;
+    padding: 3px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.buttonEditar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    margin: 5px auto;
+    background-color: rgb(21, 122, 21);
+    color: white;
+    border: none;
+    padding: 3px;
+    cursor: pointer;
+    border-radius: 5px;
+}
