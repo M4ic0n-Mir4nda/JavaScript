@@ -6,9 +6,9 @@
     font-family: 'Roboto', sans-serif;
 }
 
-/* form {
+form {
     display: none;
-} */
+} 
 
 h1 {
     font-size: 3em;
@@ -27,18 +27,6 @@ input {
     border: none;
     padding: 10px;
     width: 100%;
-}
-
-.btn-envia {
-    margin-top: 30px;
-    padding: 15px;
-    width: 150px;
-    border-radius: 5px;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    background-color: rgb(58, 58, 58);
-    color: white;
 }
 
 table {
@@ -62,18 +50,18 @@ tr:nth-child(even) {
     display: none;
 } */
 
+.cadastrar-user {
+    display: flex;
+    padding: 10px;
+    margin: 100px auto;
+    text-align: center;
+}
+
 .conteiner-box {
     width: 80%;
     background-color: #e6e6e6;
     padding: 70px;
     border-radius: 10px;
-}
-.conteiner-global {
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 .container-global {
@@ -120,4 +108,16 @@ tr:nth-child(even) {
     padding: 3px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+.btn-envia {
+    margin-top: 30px;
+    padding: 15px;
+    width: 150px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgb(58, 58, 58);
+    color: white;
 }
