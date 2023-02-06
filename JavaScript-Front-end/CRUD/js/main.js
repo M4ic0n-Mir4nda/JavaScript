@@ -1,19 +1,36 @@
 const form = document.querySelector('#form');
 const buttonCadastro = document.querySelector('#button-cadastrar');
+const buttonCancelar = document.querySelector('#btn-delete');
 const divTabela = document.querySelector('#cadastrados');
 const tabela = document.querySelector('#tabela');
 const cadastrados = JSON.parse(localStorage.getItem('cadastrados')) || [];
 
 cadastrados.forEach( (elemento) => {
-    criaElemento(elemento)
+    criaElemento(elemento);
 })
 
 buttonCadastro.addEventListener('click', (e) => {
 
-    form.style.display = 'block'
-    divTabela.style.display = 'none'
+    form.style.display = 'block';
+    divTabela.style.display = 'none';
 
-    e.preventDefault()
+    e.preventDefault();
+})
+
+buttonCancelar.addEventListener('click', (e) => {
+
+    document.querySelector('#nome').value = '';
+    document.querySelector('#cep').value = '';
+    document.querySelector('#cidade').value = '';
+    document.querySelector('#bairro').value = '';
+    document.querySelector('#rua').value = '';
+    document.querySelector('#numero').value = '';
+    document.querySelector('#complemento').value = '';
+
+    form.style.display = 'none';
+    divTabela.style.display = 'block';
+
+    e.preventDefault();
 })
 
 form.addEventListener('submit', (e) => {
@@ -36,32 +53,32 @@ form.addEventListener('submit', (e) => {
         "complemento": complemento.value,
     }
 
-    const existe = cadastrados.find( elemento => elemento.nome === pessoa.nome)
+    const existe = cadastrados.find( elemento => elemento.nome === pessoa.nome);
 
     if (existe) {
-        alert('Usúario ja cadastrado')
+        alert('Usúario ja cadastrado');
     } else {
-        pessoa.id = cadastrados[cadastrados.length - 1] ? cadastrados[cadastrados.length - 1].id + 1 : 0
-        criaElemento(pessoa)
+        pessoa.id = cadastrados[cadastrados.length - 1] ? cadastrados[cadastrados.length - 1].id + 1 : 0;
+        criaElemento(pessoa);
 
-        cadastrados.push(pessoa)
+        cadastrados.push(pessoa);
 
-        nome.value = ''
-        cep.value = ''
-        cidade.value = ''
-        bairro.value = ''
-        rua.value = ''
-        numero.value = ''
-        complemento.value = ''
+        nome.value = '';
+        cep.value = '';
+        cidade.value = '';
+        bairro.value = '';
+        rua.value = '';
+        numero.value = '';
+        complemento.value = '';
 
-        form.style.display = 'none'
+        form.style.display = 'none';
 
-        divTabela.style.display = 'block'    
+        divTabela.style.display = 'block';    
     }
 
     localStorage.setItem("cadastrados", JSON.stringify(cadastrados))
 
-    e.preventDefault()
+    e.preventDefault();
 
 })
 
@@ -94,10 +111,10 @@ function criaElemento(item) {
     novaColuna.appendChild(elementoNumero);
     novaColuna.appendChild(elementoComplemento);
    
-    novaColuna.appendChild(criaBotaoDelete(item.id))
-    novaColuna.appendChild(criaBotaoEdit(item.id))
+    novaColuna.appendChild(criaBotaoDelete(item.id));
+    novaColuna.appendChild(criaBotaoEdit(item.id));
 
-    tabela.appendChild(novaColuna)
+    tabela.appendChild(novaColuna);
 }
 
 function criaBotaoDelete(id) {
@@ -117,8 +134,49 @@ function criaBotaoEdit(id) {
     buttonEdit.innerText = 'Editar';
     buttonEdit.classList.add('buttonEditar');
 
+    // buttonEdit.addEventListener('click', function(e) {
+    //     editaElemento(this.parentNode, id);
+    // })
+
     return buttonEdit;
 }
+
+// function editaElemento(tag, id) {
+    
+//     form.style.display = 'block';
+//     divTabela.style.display = 'none';
+
+//     const valoresElemento = cadastrados.find((elemento) => elemento.id === id);
+
+//     document.querySelector('#nome').value = valoresElemento.nome
+//     document.querySelector('#cep').value = valoresElemento.cep;
+//     document.querySelector('#cidade').value = valoresElemento.cidade;
+//     document.querySelector('#bairro').value = valoresElemento.bairro;
+//     document.querySelector('#rua').value = valoresElemento.rua;
+//     document.querySelector('#numero').value = valoresElemento.numero;
+//     document.querySelector('#complemento').value = valoresElemento.complemento;
+
+//     cadastrados.splice(cadastrados.findIndex( elemento => elemento.id === id), 1);
+
+//     const buttonAtualiza = document.querySelector('#btn-cadastra');
+
+//     buttonAtualiza.addEventListener('click', (e) => {
+//         console.log(e.target.dataset.criar)
+//     })
+
+//     //buttonAtualiza.dataset.editar = "editar"
+
+//     //buttonAtualiza.innerHTML = "Atualizar";
+    
+//     // document.querySelector('#nome').value = valoresElemento.nome
+//     // document.querySelector('#cep').value = valoresElemento.cep;
+//     // document.querySelector('#cidade').value = valoresElemento.cidade;
+//     // document.querySelector('#bairro').value = valoresElemento.bairro;
+//     // document.querySelector('#rua').value = valoresElemento.rua;
+//     // document.querySelector('#numero').value = valoresElemento.numero;
+//     // document.querySelector('#complemento').innerHTML = valoresElemento.complemento;
+
+// }
 
 function deletaElemento(tag, id) {
     tag.remove();

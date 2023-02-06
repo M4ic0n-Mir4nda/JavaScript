@@ -20,10 +20,10 @@
                         <input type="text" id="nome" class="nome" placeholder="Nome..." required>
                     </div>
                     <div>
-                    <div>
                         <label>Cep</label>
-                        <input type="text" id="cep" class="cep" placeholder="Ex: 00000-010..." required onblur="validaCep(this)" onkeypress="mascaraCep(this)" pattern="\d{5}-\d{3}" maxlength="9">
+                        <input type="text" id="cep" class="cep" placeholder="Ex:01000-010..." required onblur="validaCep(this)" onkeypress="mascaraCep(this)" pattern="\d{5}-\d{3}" maxlength="9">
                     </div>
+                    <div>
                         <label>Cidade</label>
                         <input type="text" id="cidade" class="cidade" placeholder="Cidade..." required>
                     </div>
@@ -43,7 +43,10 @@
                         <label>Complemento</label>
                         <input type="text" id="complemento" class="complemento" placeholder="Complemento...">
                     </div>    
-                    <button type="submit" id="btn-envia" class="btn-envia">Enviar</button>
+                    <div class="criar">
+                        <button type="submit" id="btn-cadastra" class="btn-cadastra" dataset-criar="criar">Cadastrar</button>
+                        <button type="reset" id="btn-delete" class="btn-delete">Cancelar</button>
+                    </div>
                 </div>
             </div>
         </form>
