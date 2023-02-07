@@ -75,8 +75,8 @@ form.addEventListener('submit', (e) => {
 
         localStorage.setItem("cadastrados", JSON.stringify(cadastrados));
 
-        //form.style.display = 'none';
-        //divTabela.style.display = 'block';
+        form.style.display = 'none';
+        divTabela.style.display = 'block';
 
         nome.value = '';
         cep.value = '';
@@ -105,7 +105,7 @@ form.addEventListener('submit', (e) => {
         divTabela.style.display = 'block';    
     }
 
-    localStorage.setItem("cadastrados", JSON.stringify(cadastrados))
+    localStorage.setItem("cadastrados", JSON.stringify(cadastrados));
 
     e.preventDefault();
 
@@ -158,6 +158,14 @@ function criaBotaoDelete(id) {
     return buttonDelete;
 }
 
+function deletaElemento(tag, id) {
+    tag.remove();
+
+    cadastrados.splice(cadastrados.findIndex( elemento => elemento.id === id), 1);
+
+    localStorage.setItem('cadastrados', JSON.stringify(cadastrados));
+}
+
 function criaBotaoEdit(id) {
     const buttonEdit = document.createElement('button');
     buttonEdit.innerText = 'Editar';
@@ -185,15 +193,15 @@ function criaBotaoEdit(id) {
 
     formAtualiza.appendChild(buttonAtualiza)
 
-    const valoresElementos = cadastrados.find((elemento) => elemento.id === id);
+    const valorElemento = cadastrados.find((elemento) => elemento.id === id);
 
-    campoNome.value = valoresElementos.nome
-    campoCep.value = valoresElementos.cep;
-    campoCidade.value = valoresElementos.cidade;
-    campoBairro.value = valoresElementos.bairro;
-    campoRua.value = valoresElementos.rua;
-    campoNumero.value = valoresElementos.numero;
-    campoComplemento.value = valoresElementos.complemento;
+    campoNome.value = valorElemento.nome
+    campoCep.value = valorElemento.cep;
+    campoCidade.value = valorElemento.cidade;
+    campoBairro.value = valorElemento.bairro;
+    campoRua.value = valorElemento.rua;
+    campoNumero.value = valorElemento.numero;
+    campoComplemento.value = valorElemento.complemento;
 }
 
 function atualizaElemento(item) {
@@ -212,14 +220,6 @@ function atualizaElemento(item) {
             cadastrados[indice] = itemAtualizado
         }
     }) 
-}
-
-function deletaElemento(tag, id) {
-    tag.remove();
-
-    cadastrados.splice(cadastrados.findIndex( elemento => elemento.id === id), 1);
-
-    localStorage.setItem('cadastrados', JSON.stringify(cadastrados));
 }
 
 async function validaCep(cep) {
