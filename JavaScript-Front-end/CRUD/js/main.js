@@ -16,7 +16,7 @@ const cadastrados = JSON.parse(localStorage.getItem('cadastrados')) || [];
 // Referente a Tabela
 const divTabela = document.querySelector('#cadastrados');
 const buttonCadastrar = document.querySelector('#button-cadastrar');
-const buttonCancelar = document.querySelector('#btn-delete');
+const buttonCancelar = document.querySelector('#btn-cancelar');
 const tabela = document.querySelector('#tabela');
 
 cadastrados.forEach( (elemento) => {
@@ -75,9 +75,6 @@ form.addEventListener('submit', (e) => {
 
         localStorage.setItem("cadastrados", JSON.stringify(cadastrados));
 
-        form.style.display = 'none';
-        divTabela.style.display = 'block';
-
         nome.value = '';
         cep.value = '';
         cidade.value = '';
@@ -85,6 +82,9 @@ form.addEventListener('submit', (e) => {
         rua.value = '';
         numero.value = '';
         complemento.value = '';
+
+        form.style.display = 'none';
+        divTabela.style.display = 'block';
 
         buttonAtualiza.style.display = 'none';
     } else {
@@ -183,7 +183,7 @@ function criaBotaoEdit(id) {
     form.style.display = 'block';
     divTabela.style.display = 'none';
     document.querySelector('#btn-cadastra').style.display = 'none'
-    document.querySelector('#btn-delete').style.display = 'none'
+    document.querySelector('#btn-cancelar').style.display = 'none'
 
     const formAtualiza = document.querySelector('.form-buttons');
 
@@ -216,33 +216,8 @@ function atualizaElemento(item) {
     const itemAtualizado = item
 
     cadastrados.forEach((itemAtual, indice) =>  {
-        if (itemAtual.id === itemAtualizado.id || itemAtualizado.nome.split(' ')[0] === itemAtual.nome) {
+        if (itemAtual.id === itemAtualizado.id) {
             cadastrados[indice] = itemAtualizado
         }
     }) 
 }
-
-async function validaCep(cep) {
-    try {
-        const request = await fetch(`https://viacep.com.br/ws/${cep.value}/json/`);
-        const response = await request.json();
-        if (response.erro) {
-            alert('CEP não existente!')
-            throw Error('CEP não existente!');
-        }
-        campoRua.value = response.logradouro
-        campoBairro.value = response.bairro;
-        campoCidade.value = response.localidade;
-        return response;
-    } catch (erro) {
-        console.log(erro);
-    }
-}
-
-function mascaraCep(cep) {
-    if (cep.value.length == 5) {
-        cep.value = cep.value + '-'
-    }
-}
-
-

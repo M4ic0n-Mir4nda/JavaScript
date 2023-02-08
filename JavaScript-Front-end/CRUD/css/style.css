@@ -74,10 +74,19 @@ tr:nth-child(even) {
     transition: .5s;
 }
 
+.mensagem-erro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
+    color: red;
+    display: none;
+}
+
 .conteiner-box {
     width: 80%;
     background-color: #F5F5F5;
-    padding: 70px;
+    padding: 50px;
     border-radius: 10px;
     margin: 50px auto;
 }
@@ -124,7 +133,7 @@ tr:nth-child(even) {
     align-items: center;
     width: 100px;
     margin: 5px auto;
-    background-color: rgb(250, 48, 48);
+    background-color: rgba(255, 20, 20, 0.76);
     color: white;
     border: none;
     padding: 3px;
@@ -138,8 +147,8 @@ tr:nth-child(even) {
     align-items: center;
     width: 100px;
     margin: 5px auto;
-    background-color: rgb(21, 122, 21);
-    color: white;
+    background-color: rgba(253, 253, 20, 0.692);
+    color: black;
     border: none;
     padding: 3px;
     cursor: pointer;
@@ -154,11 +163,11 @@ tr:nth-child(even) {
     border: none;
     font-size: 18px;
     cursor: pointer;
-    background-color: rgb(21, 122, 21);
+    background-color: rgba(21, 122, 21, 0.877);
     color: white;
 }
 
-.btn-delete {
+.btn-cancelar {
     margin-top: 30px;
     padding: 15px;
     width: 150px;
@@ -166,7 +175,7 @@ tr:nth-child(even) {
     border: none;
     font-size: 18px;
     cursor: pointer;
-    background-color: red;
+    background-color: rgba(255, 20, 20, 0.849);
     color: white; 
 }
 
