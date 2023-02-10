@@ -210,5 +210,31 @@ tr:nth-child(even) {
 
     .button-cadastrar {
         margin-top: 50px;
-    }    
+    }
+
+    .buttonExcluir {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100px;
+        margin: 20px auto;
+        background-color: rgba(255, 20, 20, 0.76);
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .buttonEditar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100px;
+        margin: 20px auto;
+        background-color: rgba(253, 253, 20, 0.692);
+        color: black;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
 }
