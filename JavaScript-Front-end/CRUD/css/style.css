@@ -201,6 +201,15 @@ tr:nth-child(even) {
         padding: 8px;
     }
 
+    .desenvolvimento a {
+        font-family: 'Bitter', serif;
+        text-decoration: none;
+        color: #339AF0;
+        font-size: 23px;
+        text-align: justify;
+    }
+    
+
     .cadastrados {
         margin: 50px auto;
         background-color: #F5F5F5;
