@@ -67,7 +67,7 @@ form.addEventListener('submit', (e) => {
         "complemento": complemento.value,
     }
 
-    const existe = cadastrados.find( elemento => elemento.nome === pessoa.nome);
+    const existe = cadastrados.find( (elemento) =>  elemento.nome == pessoa.nome || pessoa.nome.split(' ').slice(0, 1) == elemento.nome);
 
     if (existe) {
         pessoa.id = existe.id;
@@ -112,7 +112,7 @@ form.addEventListener('submit', (e) => {
 })
 
 function criaElemento(item) {
-    const novaColuna = document.createElement('tr')
+    const novaLinha = document.createElement('tr')
     
     const elementoNome = document.createElement('td');
     const elementoCep = document.createElement('td');
@@ -122,7 +122,7 @@ function criaElemento(item) {
     const elementoNumero = document.createElement('td');
     const elementoComplemento = document.createElement('td');
 
-    novaColuna.dataset.id = item.id
+    novaLinha.dataset.id = item.id
 
     elementoNome.innerHTML = item.nome;
     elementoCep.innerHTML = item.cep;
@@ -132,18 +132,18 @@ function criaElemento(item) {
     elementoNumero.innerHTML = item.numero;
     elementoComplemento.innerHTML = item.complemento;
 
-    novaColuna.appendChild(elementoNome);
-    novaColuna.appendChild(elementoCep);
-    novaColuna.appendChild(elementoCidade);
-    novaColuna.appendChild(elementoBairro);
-    novaColuna.appendChild(elementoRua);
-    novaColuna.appendChild(elementoNumero);
-    novaColuna.appendChild(elementoComplemento);
+    novaLinha.appendChild(elementoNome);
+    novaLinha.appendChild(elementoCep);
+    novaLinha.appendChild(elementoCidade);
+    novaLinha.appendChild(elementoBairro);
+    novaLinha.appendChild(elementoRua);
+    novaLinha.appendChild(elementoNumero);
+    novaLinha.appendChild(elementoComplemento);
    
-    novaColuna.appendChild(criaBotaoDelete(item.id));
-    novaColuna.appendChild(criaBotaoEdit(item.id));
+    novaLinha.appendChild(criaBotaoDelete(item.id));
+    novaLinha.appendChild(criaBotaoEdit(item.id));
 
-    tabela.appendChild(novaColuna);
+    tabela.appendChild(novaLinha);
 }
 
 function criaBotaoDelete(id) {
@@ -173,7 +173,7 @@ function criaBotaoEdit(id) {
 
     buttonEdit.addEventListener('click', function() {
         buscaDados(this.parentNode, id);
-})
+    })
 
     return buttonEdit;
 }

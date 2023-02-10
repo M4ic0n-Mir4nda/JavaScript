@@ -11,7 +11,10 @@
 </head>
 <body>
     <main>
-        <h3 class="desenvolvimento"><a href="#">Desenvolvido por Maicon M. Santana</a></h3>
+        <div class="git">
+            <a href="https://github.com/M4ic0n-Mir4nda/JavaScript/tree/main/JavaScript-Front-end/CRUD" target="_blank"><img class="icon" src="assets/icon-github.png" alt=""></a>
+            <h3 class="desenvolvimento"><a href="https://github.com/M4ic0n-Mir4nda/JavaScript/tree/main/JavaScript-Front-end/CRUD" target="_blank">Desenvolvido por Maicon M. Santana</a></h3>
+        </div>
         <form id="form">
             <div class="conteiner-global">
                 <div class="conteiner-box">
@@ -21,7 +24,7 @@
                     </div>
                     <div>
                         <label>Cep</label>
-                        <input type="text" id="cep" class="cep" placeholder="Ex:01000-010..." required onblur="validaCep(this)" onkeypress="mascaraCep(this)" pattern="\d{5}-\d{3}" maxlength="9">
+                        <input type="text" id="cep" class="cep" placeholder="Ex: 01001-000..." onblur="validaCep(this)" onkeypress="mascaraCep(this)" onchange="mascaraCep(this)" pattern="\d{5}-\d{3}" maxlength="9">
                     </div>
                     <div>
                         <label>Cidade</label>
@@ -44,7 +47,7 @@
                         <input type="text" id="complemento" class="complemento" placeholder="Complemento...">
                     </div>    
                     <div class="form-buttons">
-                        <button type="submit" id="btn-cadastra" class="btn-cadastra" dataset-criar="criar">Cadastrar</button>
+                        <button type="submit" id="btn-cadastra" class="btn-cadastra">Cadastrar</button>
                         <button type="reset" id="btn-cancelar" class="btn-cancelar">Cancelar</button>
                     </div>
                 </div>
@@ -53,7 +56,7 @@
         <section id="cadastrados" class="cadastrados">
             <div class="container-global">
                 <h1>Usuários Cadastrados</h1>
-                <div class="conteiner-box-table">
+                <div class="conteiner-box-table" style="overflow-x:auto;">
                     <table id="tabela">
                         <tr>
                             <th>Nome</th>

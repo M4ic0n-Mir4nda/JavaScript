@@ -6,6 +6,7 @@ async function validaCep(cep) {
             
             campoCep.value += '...   Cep Invalido!'
             campoCep.style.color = 'red'
+            campoCep.focus()
             setTimeout(function(){
                     campoCep.value = ''
                     campoCep.style.color = 'black'
@@ -25,6 +26,14 @@ async function validaCep(cep) {
 
 function mascaraCep(cep) {
     if (cep.value.length == 5) {
-        cep.value = cep.value + '-'
+        cep.value = cep.value + '-';
+    } else if (cep.value.length < 9) {
+        campoRua.disabled = true;
+        campoCidade.disabled = true;
+        campoNumero.disabled = true;
+    } else if (cep.value.length === 9) {
+        campoRua.disabled = false;
+        campoCidade.disabled = false;
+        campoNumero.disabled = false;
     }
 }
