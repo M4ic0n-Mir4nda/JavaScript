@@ -200,53 +200,8 @@ tr:nth-child(even) {
         text-align: left;
         padding: 8px;
     }
-
-    .desenvolvimento a {
-        font-family: 'Bitter', serif;
-        text-decoration: none;
-        color: #339AF0;
-        font-size: 23px;
-        text-align: justify;
-    }
     
-
-    .cadastrados {
-        margin: 50px auto;
-        background-color: #F5F5F5;
-        padding-bottom: 30px;
-        border-radius: 10px;
-    }
-
-    .button-cadastrar {
-        margin-top: 50px;
-    }
-
-    .buttonExcluir {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100px;
-        margin: 20px auto;
-        background-color: rgba(255, 20, 20, 0.76);
-        color: white;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-    }
     
-    .buttonEditar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100px;
-        margin: 20px auto;
-        background-color: rgba(253, 253, 20, 0.692);
-        color: black;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-
     .git {
         display: block;
         align-items: center;
@@ -263,5 +218,24 @@ tr:nth-child(even) {
         display: flex;
         align-items: center;
         margin: 0 auto;
+    }
+
+    .cadastrados {
+        margin: 50px auto;
+        background-color: #F5F5F5;
+        padding-bottom: 30px;
+        border-radius: 10px;
+    }
+
+    .button-cadastrar {
+        margin-top: 50px;
+    }
+
+    .buttonExcluir {
+        margin: 20px auto;
+    }
+    
+    .buttonEditar {
+        margin: 20px auto;
     }
 }
