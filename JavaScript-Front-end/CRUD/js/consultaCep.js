@@ -4,7 +4,7 @@ async function validaCep(cep) {
         const response = await consulta.json();
         if (response.erro) {
             
-            campoCep.value += '...   Cep Invalido!'
+            campoCep.value += '...   Cep Inexistente!'
             campoCep.style.color = 'red'
             campoCep.focus()
             setTimeout(function(){
@@ -29,7 +29,7 @@ function mascaraCep(cep) {
     if (cep.value.length == 5) {
         cep.value = cep.value + '-';
     } else if (cep.value.length === 9 && !isNaN(cep.value)) {
-        campoCep.value += '...   Cep Invalido!'
+        campoCep.value += '...   Cep Inexistente!'
         campoCep.style.color = 'red'
         campoCep.focus()
         setTimeout(function(){
