@@ -199,8 +199,7 @@ tr:nth-child(even) {
     th, td {
         text-align: left;
         padding: 8px;
-    }
-    
+    }    
     
     .git {
         display: block;
@@ -218,6 +217,18 @@ tr:nth-child(even) {
         display: flex;
         align-items: center;
         margin: 0 auto;
+    }
+
+    .form-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .conteiner-box {
+        width: 80%;
+        background-color: #F5F5F5;
+        padding: 30px;
     }
 
     .cadastrados {
@@ -238,4 +249,5 @@ tr:nth-child(even) {
     .buttonEditar {
         margin: 20px auto;
     }
+
 }
