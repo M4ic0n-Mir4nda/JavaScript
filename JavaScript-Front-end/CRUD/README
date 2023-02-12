@@ -1,3 +1,0 @@
-O JavaScript foi utilizado em grande parte do projeto, desde a criação de novos elementos HTML, manipulação do DOM, criação de funções para deletar ou atualizar dados, criar objetos com dados do formulário, LocalStorage para armazenar os dados e etc.
-
-Na função que consulta o CEP e retorna a resposta utilizei uma função assíncrona para aguardar o retorno da API e não ser necessário parar todo o resto do código, além disso fiz algumas validações e tratamentos na função ao ter a resposta da API e entre elas estão a digitação do usuário para validar se o CEP existe e caso exista trazer os dados nos campos, e se não existir retornar uma mensagem avisando que não existe. Entre outras validações a mais.
