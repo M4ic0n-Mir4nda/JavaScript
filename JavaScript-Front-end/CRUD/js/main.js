@@ -17,6 +17,7 @@ const cadastrados = JSON.parse(localStorage.getItem('cadastrados')) || [];
 const divTabela = document.querySelector('#cadastrados');
 const buttonCadastrar = document.querySelector('#button-cadastrar');
 const buttonCancelar = document.querySelector('#btn-cancelar');
+const buttonSalvar = document.querySelector('#btn-cadastra');
 const tabela = document.querySelector('#tabela');
 
 cadastrados.forEach( (elemento) => {
@@ -47,63 +48,34 @@ buttonCancelar.addEventListener('click', (e) => {
     e.preventDefault();
 })
 
-form.addEventListener('submit', (e) => {
+buttonSalvar.addEventListener('click', (e) => {
 
-    const nome = e.target.elements['nome'];
-    const cep = e.target.elements['cep'];
-    const cidade = e.target.elements['cidade'];
-    const bairro = e.target.elements['bairro'];
-    const rua = e.target.elements['rua'];
-    const numero = e.target.elements['numero'];
-    const complemento = e.target.elements['complemento'];
-
-    const pessoa = {
-        "nome": nome.value,
-        "cep": cep.value,
-        "cidade": cidade.value,
-        "bairro": bairro.value,
-        "rua": rua.value,
-        "numero": numero.value,
-        "complemento": complemento.value,
+    const usuario = {
+        "nome": campoNome.value,
+        "cep": campoCep.value,
+        "cidade": campoCidade.value,
+        "bairro": campoBairro.value,
+        "rua": campoRua.value,
+        "numero": campoNumero.value,
+        "complemento": campoComplemento.value,
     }
 
-    const existe = cadastrados.find( (elemento) =>  elemento.nome == pessoa.nome || pessoa.nome.split(' ').slice(0, 1) == elemento.nome);
+    usuario.id = cadastrados[cadastrados.length - 1] ? cadastrados[cadastrados.length - 1].id + 1 : 0;
+    criaElemento(usuario);
 
-    if (existe) {
-        pessoa.id = existe.id;
-        atualizaElemento(pessoa);
+    cadastrados.push(usuario);
 
-        localStorage.setItem("cadastrados", JSON.stringify(cadastrados));
+    nome.value = '';
+    cep.value = '';
+    cidade.value = '';
+    bairro.value = '';
+    rua.value = '';
+    numero.value = '';
+    complemento.value = '';
 
-        nome.value = '';
-        cep.value = '';
-        cidade.value = '';
-        bairro.value = '';
-        rua.value = '';
-        numero.value = '';
-        complemento.value = '';
+    form.style.display = 'none';
+    divTabela.style.display = 'block';    
 
-        form.style.display = 'none';
-        divTabela.style.display = 'block';
-
-        buttonAtualiza.style.display = 'none';
-    } else {
-        pessoa.id = cadastrados[cadastrados.length - 1] ? cadastrados[cadastrados.length - 1].id + 1 : 0;
-        criaElemento(pessoa);
-
-        cadastrados.push(pessoa);
-
-        nome.value = '';
-        cep.value = '';
-        cidade.value = '';
-        bairro.value = '';
-        rua.value = '';
-        numero.value = '';
-        complemento.value = '';
-
-        form.style.display = 'none';
-        divTabela.style.display = 'block';    
-    }
 
     localStorage.setItem("cadastrados", JSON.stringify(cadastrados));
 
@@ -182,16 +154,8 @@ function criaBotaoEdit(id) {
     
     form.style.display = 'block';
     divTabela.style.display = 'none';
-    document.querySelector('#btn-cadastra').style.display = 'none'
-    document.querySelector('#btn-cancelar').style.display = 'none'
-
-    const formAtualiza = document.querySelector('.form-buttons');
-
-    const buttonAtualiza = document.createElement('button');
-    buttonAtualiza.innerText = 'Atualizar';
-    buttonAtualiza.classList.add('btn-atualiza')
-
-    formAtualiza.appendChild(buttonAtualiza)
+    document.querySelector('#btn-cadastra').style.display = 'none';
+    document.querySelector('#btn-cancelar').style.display = 'none';
 
     const valorElemento = cadastrados.find((elemento) => elemento.id === id);
 
@@ -202,22 +166,50 @@ function criaBotaoEdit(id) {
     campoRua.value = valorElemento.rua;
     campoNumero.value = valorElemento.numero;
     campoComplemento.value = valorElemento.complemento;
+
+    const formAtualiza = document.querySelector('.form-buttons');
+
+    const buttonAtualiza = document.createElement('button');
+    buttonAtualiza.innerText = 'Atualizar';
+    buttonAtualiza.classList.add('btn-atualiza');
+
+    formAtualiza.appendChild(buttonAtualiza)
+
+    form.addEventListener('submit', () => {
+        atualizaElemento(id);
+
+        localStorage.setItem("cadastrados", JSON.stringify(cadastrados));
+           
+        form.style.display = 'none';
+
+        divTabela.style.display = 'block';
+    })
 }
 
-function atualizaElemento(item) {
-    campoNome.value = item.nome
-    campoCep.value = item.cep;
-    campoCidade.value = item.cidade;
-    campoBairro.value = item.bairro;
-    campoRua.value = item.rua;
-    campoNumero.value = item.numero;
-    campoComplemento.value = item.complemento;
+function atualizaElemento(id) {          
+        const idAtual = id
+        const nomeAtualizado = campoNome.value;
+        const cepAtualizado = campoCep.value;
+        const cidadeAtualizado = campoCidade.value;
+        const bairroAtualizado = campoBairro.value;
+        const ruaAtualizado = campoRua.value;
+        const numeroAtualizado = campoNumero.value;
+        const complementoAtualizado = campoComplemento.value;
 
-    const itemAtualizado = item
-
-    cadastrados.forEach((itemAtual, indice) =>  {
-        if (itemAtual.id === itemAtualizado.id) {
-            cadastrados[indice] = itemAtualizado
+        const usuarioAtualizado = {
+            "nome": nomeAtualizado,
+            "cep": cepAtualizado,
+            "cidade": cidadeAtualizado,
+            "bairro": bairroAtualizado,
+            "rua": ruaAtualizado,
+            "numero": numeroAtualizado,
+            "complemento": complementoAtualizado,
+            "id": idAtual,
         }
-    }) 
+
+        cadastrados.forEach((elemento, indice) => {
+            if (elemento.id === usuarioAtualizado.id) {
+                cadastrados[indice] = usuarioAtualizado;
+            }
+        })
 }
