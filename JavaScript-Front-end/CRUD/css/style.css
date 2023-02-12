@@ -152,7 +152,7 @@ tr:nth-child(even) {
     border-radius: 5px;
 }
 
-.btn-salvar {
+.btn-cadastra {
     margin-top: 30px;
     padding: 15px;
     width: 150px;
@@ -242,7 +242,11 @@ tr:nth-child(even) {
         margin-top: 50px;
     }
 
-    .buttonExcluir, .buttonEditar {
+    .buttonExcluir {
+        margin: 20px auto;
+    }
+    
+    .buttonEditar {
         margin: 20px auto;
     }
 }
