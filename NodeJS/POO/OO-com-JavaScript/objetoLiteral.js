@@ -1,13 +1,3 @@
-const user = {
-    nome: 'Maicon',
-    email: 'm@m.com',
-    nascimento: '2001/05/31',
-    role: 'estudante',
-    ativo: true,
-    exibirInfos: function() {
-        console.log(this.nome, this.email)
-    }
-}
 /*
 const exibir = function() {
     console.log(this.nome)
@@ -19,6 +9,17 @@ exibirNome()
 exibir()
 */
 
+const user = {
+    nome: 'Maicon',
+    email: 'm@m.com',
+    nascimento: '2001/05/31',
+    role: 'estudante',
+    ativo: true,
+    exibirInfos: function() {
+        console.log(this.nome, this.email)
+    }
+}
+
 const admin = {
     nome: 'Maria',
     email: 'm@m.com',
@@ -28,6 +29,7 @@ const admin = {
     }
 }
 
+        // Define um protótipo e recebe dois parametros
 Object.setPrototypeOf(admin, user)
 admin.criaCurso()
 admin.exibirInfos()
