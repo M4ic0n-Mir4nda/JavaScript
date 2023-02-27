@@ -1,5 +1,6 @@
 import express from "express";
-import livros from "./livrosRoutes.js"
+import livros from "./livrosRoutes.js";
+import autores from "./autoresRoutes.js";
 
 const routes = (app) => {
     // O método route define o que acontece na roda que for definidado nele. Obs: é recomendado usar em casos de mensagens básicas, em casos de processos mais complexos usar formas de rotas por arquivos
@@ -9,7 +10,8 @@ const routes = (app) => {
 
     app.use(
         express.json(),
-        livros
+        livros,
+        autores
     )
 }
 

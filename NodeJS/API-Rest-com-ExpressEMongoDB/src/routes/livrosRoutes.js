@@ -3,9 +3,13 @@ import LivroController from "../controllers/livrosControllers.js";
 
 const router = express.Router(); // Usa o roteamento do express
 
-router
-    .get("/livros", LivroController.listarLivros) // Define a rota e o método que sera executado nela
+router  // Define a rota e o método que sera executado nela
+    .get("/livros", LivroController.listarLivros)
+    .get("/livros/busca", LivroController.listarLivroPorEditora)
+    .get("/livros/:id", LivroController.listarLivroPorId)
     .post("/livros", LivroController.cadastrarLivro)
+    .put("/livros/:id", LivroController.atualizarLivro)
+    .delete("/livros/:id", LivroController.excluirLivro)
 
 export default router;
 
