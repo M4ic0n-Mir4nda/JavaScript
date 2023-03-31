@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+    mysql:
+      image: mysql:8.0
+      container_name: mysql-container
+      restart: always
+      container_name: mysql-container
+      environment:
+        MYSQL_DATABASE: adopet
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_ROOT_HOST: 127.0.0.1
+      ports:
+        - '3306:3306'
+      volumes:
+        - mysql_data:/var/lib/mysql
+      networks:
+        - rede-projeto
+
+volumes:
+  mysql_data:
+
+networks:
+  rede-projeto:
+    driver: bridge

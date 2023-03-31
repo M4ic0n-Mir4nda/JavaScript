@@ -1,6 +1,9 @@
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-		return queryInterface.bulkInsert('Matriculas', [
+  async up (queryInterface, Sequelize) {
+    await queryInterface.bulkInsert('Matriculas', [
 			{
 				status: "confirmado",
 				estudante_id: 1,
@@ -44,9 +47,9 @@ module.exports = {
 					updatedAt: new Date()
 				}
 				], {})
-  			},
+  		},
 
-  down: (queryInterface, Sequelize) => {
-		return queryInterface.bulkDelete('Matriculas', null, {})
+  async down (queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('Matriculas', null, {})
   }
-}
+};
