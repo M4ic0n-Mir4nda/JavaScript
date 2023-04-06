@@ -4,7 +4,6 @@ services:
       image: mysql:8.0
       container_name: mysql-container
       restart: always
-      container_name: mysql-container
       environment:
         MYSQL_DATABASE: adopet
         MYSQL_ROOT_PASSWORD: root
