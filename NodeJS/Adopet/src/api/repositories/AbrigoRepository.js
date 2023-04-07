@@ -28,7 +28,7 @@ class AbrigoRepository {
             const novoAbrigoCriado = await database.Usuarios.create(dadosAbrigo);
             return novoAbrigoCriado;
         } catch (err) {
-            return err;
+            return {message: err.message};
         }
     }
 
@@ -38,7 +38,7 @@ class AbrigoRepository {
             const abrigoAtualizado = await database.Usuarios.findOne({where: {id: Number(idAbrigo)}});
             return abrigoAtualizado;
         } catch (err) {
-            return err;
+            return {message: err.message};
         }
     }
 
@@ -47,7 +47,7 @@ class AbrigoRepository {
             await database.Usuarios.destroy({where: {id: Number(idAbrigo)}});
             return `Abrigo com id ${idAbrigo} deletado`;
         } catch (err) {
-            return err;
+            return {message: err.message};
         }
     }
 }

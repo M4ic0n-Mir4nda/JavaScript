@@ -28,7 +28,7 @@ class TutorRepository {
             const novoTutorCriado = await database.Usuarios.create(dadosTutor);
             return novoTutorCriado;
         } catch (err) {
-            return err;
+            return {message: err.message};
         }
     }
 
@@ -38,7 +38,7 @@ class TutorRepository {
             const tutorAtualizado = await database.Usuarios.findOne({where: {id: Number(idTutor)}});
             return tutorAtualizado;
         } catch (err) {
-            return err;
+            return {message: err.message};
         }
     }
 
@@ -47,7 +47,7 @@ class TutorRepository {
             await database.Usuarios.destroy({where: {id: Number(idTutor)}});
             return `Tutor com id ${idTutor} deletado`;
         } catch (err) {
-            return err;
+            return {message: err.message};
         }
     }
 }

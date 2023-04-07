@@ -13,7 +13,10 @@ class AbrigoService {
     }
 
     static async cadastraAbrigoService(req) {
-        const dadosAbrigo = req.body;
+        const { name, email, password, role = 'admin', profilePictureURL, telephone, about, city } = req.body
+        const dadosAbrigo = {
+            name, email, password, role, profilePictureURL, telephone, about, city
+        }
 
         return AbrigoRepository.cadastraAbrigoRepository(dadosAbrigo)
     }

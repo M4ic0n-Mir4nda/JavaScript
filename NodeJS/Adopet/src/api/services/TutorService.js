@@ -1,4 +1,5 @@
 const TutorRepository = require('../repositories/TutorRepository')
+const { validationResult } = require('express-validator/check')
 
 class TutorService {
 
@@ -13,7 +14,10 @@ class TutorService {
     }
 
     static async cadastraTutorService(req) {
-        const dadosTutor = req.body;
+        const { name, email, password, role = 'tutor', profilePictureURL, telephone, about, city } = req.body
+        const dadosTutor = {
+            name, email, password, role, profilePictureURL, telephone, about, city
+        }
 
         return TutorRepository.cadastraTutorRepository(dadosTutor)
     }
