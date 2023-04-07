@@ -7,7 +7,7 @@ module.exports = {
       {
         name: 'Max',
         age: 2,
-        user_id: 4,
+        user_id: 3,
         bearing: 'Porte Medio',
         temperament: 'Docil',
         photo: 'URL',

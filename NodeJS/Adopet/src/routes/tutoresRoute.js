@@ -1,12 +1,13 @@
 const {Router} = require("express")
-const UsuarioController = require("../api/controllers/UsuarioController")
+const TutorController = require("../api/controllers/TutorController")
 const router = Router()
 
 router
-    .get("/tutores", UsuarioController.BuscaTodosOsUsuarios)
-    .get("/tutores/:id", UsuarioController.BuscaUsuarioPorId)
-    .post("/tutores", UsuarioController.cadastraUsuario)
-    .put("/tutores/:id", UsuarioController.atualizaDadosUsuario)
-    .delete("/tutores/:id", UsuarioController.deletaUsuario)
+    .get("/tutores", TutorController.BuscaTutores)
+    .get("/tutores/:id", TutorController.BuscaTutorPorId)
+    .post("/tutores", TutorController.cadastraTutor)
+    .put("/tutores/:id", TutorController.atualizaDadosTutor)
+    .delete("/tutores/:id", TutorController.deletaTutor)
+
     
 module.exports = router;

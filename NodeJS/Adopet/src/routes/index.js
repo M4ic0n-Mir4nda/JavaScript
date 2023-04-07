@@ -1,12 +1,14 @@
 const bodyParser = require("body-parser")
-const usuarios = require("./tutoresRoute.js")
+const tutores = require("./tutoresRoute.js")
 const pets = require("./petsRoute.js")
+const abrigos = require('./abrigosRoute.js');
 
 const routes = app => {
     app.use(
         bodyParser.json(),
-        usuarios,
-        pets
+        abrigos,
+        tutores,
+        pets,
     )
 }
 
