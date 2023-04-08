@@ -51,6 +51,42 @@ module.exports = {
         city: 'Rio de Janeiro',
         createdAt: new Date(),
         updatedAt: new Date(),
+      },
+      {
+        name: 'Nathalia Silva',
+        email: 'nath@lima.com',
+        role: 'tutor',
+        password: 'nath123',
+        profilePictureURL: null,
+        telephone: null,
+        about: null,
+        city: 'Sao Paulo',
+        createdA: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Matheus Andrade',
+        email: 'mtheus@a.co',
+        role: 'tutor',
+        password: 'matheus203654',
+        profilePictureURL: 'URL',
+        telephone: '9 2556-6936',
+        about: 'Sobre...',
+        city: 'Rio de Janeiro',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Ong Teste',
+        emai: 'ong@teste.com',
+        role: 'admin',
+        password: 'ongteste123',
+        profilePictureURL: 'URL',
+        telephone: '9 2556-6998',
+        about: 'Sobre...',
+        city: 'Rio de Janeiro',
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
   ], {});
   },

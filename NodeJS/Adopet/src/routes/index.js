@@ -1,7 +1,8 @@
-const bodyParser = require("body-parser")
-const tutores = require("./tutoresRoute.js")
-const pets = require("./petsRoute.js")
-const abrigos = require('./abrigosRoute.js');
+const bodyParser = require("body-parser");
+const tutores = require("./tutoresRoute.js");
+const abrigos = require("./abrigosRoute.js");
+const pets = require("./petsRoute.js");
+const adocoes = require("./adocoesRoute.js")
 
 const routes = app => {
     app.use(
@@ -9,6 +10,7 @@ const routes = app => {
         abrigos,
         tutores,
         pets,
+        adocoes,
     )
 }
 

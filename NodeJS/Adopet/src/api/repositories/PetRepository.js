@@ -4,7 +4,10 @@ class PetRepository {
 
     static async BuscaTodosOsPetsRepository() {
         try {
-            let pets = await database.Pets.findAll()
+            let pets = await database.Pets.findAll({where: { adopted_pet: 0 }})
+            if (pets.length === 0) {
+                return "Não encontrado"
+            }
             return pets;
         } catch (err) {
             return "Não encontrado"
@@ -13,10 +16,10 @@ class PetRepository {
 
     static async BuscaPetPordIdRepository(id) {
         try {
-            let user = await database.Pets.findOne({
+            let pet = await database.Pets.findOne({
                 where: {id: Number(id)}
             })
-            return user;
+            return pet;
         } catch (err) {
             return "Não encontrado"
         }

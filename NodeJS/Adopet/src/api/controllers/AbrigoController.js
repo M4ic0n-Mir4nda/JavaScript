@@ -46,6 +46,15 @@ class AbrigoController {
             res.status(500).send({message: err.message});
         }
     }
+
+    static async deletaAdocoes(req, res) {
+        try {
+            const listaDeAdocoes = await AbrigoService.deletaAdocoesService(req);
+            return res.status(200).json(listaDeAdocoes);
+        } catch (err) {
+            return res.status(500).send({message: err.message});
+        }
+    }
 }
 
 module.exports = AbrigoController;

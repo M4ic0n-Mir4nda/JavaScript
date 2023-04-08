@@ -33,6 +33,12 @@ class AbrigoService {
 
         return AbrigoRepository.deletaAbrigoRepository(id);
     }
+
+    static async deletaAdocoesService(req) {
+        const { id } = req.params;
+
+        return AbrigoRepository.deletaAdocoesRepository(id);
+    }
 }
 
 module.exports = AbrigoService;

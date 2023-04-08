@@ -20,7 +20,7 @@ module.exports = {
       },
       age: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       bearing: {
         allowNull: false,
@@ -47,12 +47,14 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       }
+    }, {
+      updatedAt: false
     });
   },
   async down(queryInterface, Sequelize) {

@@ -5,7 +5,7 @@ class TutorRepository {
     static async BuscaTutoresRepository() {
 
         try {
-            let tutores = await database.Usuarios.findAll({where: {role: 'tutor'}});
+            let tutores = await database.Usuarios.findAll({where: { role: 'tutor' }});
             return tutores;
         } catch (err) {
             return "Não encontrado"

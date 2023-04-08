@@ -5,7 +5,7 @@ class AbrigoRepository {
     static async BuscaAbrigosRepository() {
 
         try {
-            let abrigos = await database.Usuarios.findAll({where: {role: 'admin'}});
+            let abrigos = await database.Usuarios.findAll({where: { role: 'admin' }});
             return abrigos;
         } catch (err) {
             return "Não encontrado"
@@ -48,6 +48,17 @@ class AbrigoRepository {
             return `Abrigo com id ${idAbrigo} deletado`;
         } catch (err) {
             return {message: err.message};
+        }
+    }
+
+    static async deletaAdocoesRepository(id) {
+        try {
+           const adocaoEncontrada = await database.Adocoes.findOne({where: {id: Number(id)}});
+           await database.Pets.update({ adopted_pet: 0 }, {where: {id: Number(adocaoEncontrada.pet_id)}});
+           await database.Adocoes.destroy({where: {id: Number(id)}});
+           return `Adoção ${id} deletada`;
+        } catch (err) {
+            return {message: `adocao com id ${id} não encontrado`};
         }
     }
 }
