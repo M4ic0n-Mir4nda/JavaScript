@@ -52,9 +52,11 @@ class AbrigoRepository {
     }
 
     static async deletaAdocoesRepository(id) {
+        const adocaoEncontrada = await database.Adocoes.findOne({where: {id: Number(id)}});
+        const { pet_id } = adocaoEncontrada;
+        
         try {
-           const adocaoEncontrada = await database.Adocoes.findOne({where: {id: Number(id)}});
-           await database.Pets.update({ adopted_pet: 0 }, {where: {id: Number(adocaoEncontrada.pet_id)}});
+           await database.Pets.update({ adopted_pet: 0 }, {where: {id: Number(pet_id)}});
            await database.Adocoes.destroy({where: {id: Number(id)}});
            return `Adoção ${id} deletada`;
         } catch (err) {

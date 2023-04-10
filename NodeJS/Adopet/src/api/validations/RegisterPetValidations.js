@@ -2,7 +2,7 @@ const { body, validationResult } = require("express-validator");
 
 exports.validationBodyRules = [
     body('name', 'nome é obrigatorio').exists(),
-    body('user_id', 'id de usuario obrigatório').exists(),
+    body('user_id', 'id de abrigo é obrigatório').exists(),
     body('age', 'idade é obrigatorio').exists(),
     body('bearing', 'porte é obrigatorio').exists(),
     body('temperament', 'temperamento é obrigatório').exists(),

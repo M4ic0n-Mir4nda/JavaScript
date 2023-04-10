@@ -5,9 +5,9 @@ const router = Router();
 
 router
 .get("/pets", PetController.buscaTodosOsPets)
-.get("/pets/:id", PetController.BuscaPetPorId)
+.get("/pet/:id", PetController.BuscaPetPorId)
 .post("/pets", RegisterPetValidations.validationBodyRules, RegisterPetValidations.checkRules, PetController.cadastraPet)
-.put("/pets/:id", PetController.atualizaDadosPet)
+.put("/pet/:id", PetController.atualizaDadosPet)
 .delete("/pets/:id", PetController.deletaPet)
 
 module.exports = router;

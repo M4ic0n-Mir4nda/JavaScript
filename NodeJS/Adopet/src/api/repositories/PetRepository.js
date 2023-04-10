@@ -26,10 +26,19 @@ class PetRepository {
     }
 
     static async cadastraPetRepository(dadosPet) {
+        const { user_id } = dadosPet;
+        const verificaUser = await database.Usuarios.findOne({where: {id: Number(user_id)}});
+
         try {
+            if (verificaUser.role == 'tutor') {
+                return {message: "Não é possivel associar um tutor para um cadastro de pet, apenas abrigos podem ser associados a um novo pet"};
+            }
             const novoPetCriado = await database.Pets.create(dadosPet);
             return novoPetCriado;
         } catch (err) {
+            if (verificaUser === null) {
+                return {message: `user_id: ${user_id} não encontrado`}
+            }
             return {message: err.message};
         }
     }
