@@ -1,35 +1,35 @@
 const PetRepository = require('../repositories/PetRepository');
 
 class PetService {
+  static async getAllPetsService(req) {
+    const page = req.query.page;
+    return PetRepository.getAllPetsRepository(page);
+  }
 
-    static async BuscaTodosOsPetsService() {
-        return PetRepository.BuscaTodosOsPetsRepository();
-    }
+  static async getPetByIdService(req) {
+    const { id } = req.params;
 
-    static async BuscaPetPordIdService(req) {
-        const { id } = req.params;
+    return PetRepository.getPetByIdRepository(id);
+  }
 
-        return PetRepository.BuscaPetPordIdRepository(id);
-    }
-    
-    static async cadastraPetService(req) {
-        const dadosPet = req.body;
+  static async createPetService(req) {
+    const dadosPet = req.body;
 
-        return PetRepository.cadastraPetRepository(dadosPet);
-    }
-    
-    static async atualizaDadosPetService(req) {
-        const { id } = req.params;
-        const novosDados = req.body;
+    return PetRepository.createPetRepository(dadosPet);
+  }
 
-        return PetRepository.atualizaDadosPetRepository(novosDados, id)
-    }
-    
-    static async deletaPetService(req) {
-        const { id } = req.params;
+  static async updatePetService(req) {
+    const { id } = req.params;
+    const novosDados = req.body;
 
-        return PetRepository.deletaPetRepository(id)
-    }
+    return PetRepository.updatePetRepository(novosDados, id);
+  }
+
+  static async deletePetService(req) {
+    const { id } = req.params;
+
+    return PetRepository.deletePetRepository(id);
+  }
 }
 
 module.exports = PetService;

@@ -1,44 +1,44 @@
-const AbrigoRepository = require('../repositories/AbrigoRepository')
+const AbrigoRepository = require('../repositories/AbrigoRepository');
 
 class AbrigoService {
+  static async getAllAbrigosService() {
+    return AbrigoRepository.getAllAbrigosRepository();
+  }
 
-    static async BuscaAbrigosService() {
-        return AbrigoRepository.BuscaAbrigosRepository();
-    }
+  static async getAbrigoByIdService(req) {
+    const { id } = req.params;
 
-    static async BuscaAbrigoPorIdService(req) {
-        const { id } = req.params;
+    return AbrigoRepository.getAbrigoByIdRepository(id);
+  }
 
-        return AbrigoRepository.BuscaAbrigoPordIdRepository(id);
-    }
+  static async createAbrigoService(req) {
+    const {
+      name, email, password, role = 'admin', profilePictureURL, telephone, about, city,
+    } = req.body;
+    const dadosAbrigo = {
+      name, email, password, role, profilePictureURL, telephone, about, city,
+    };
 
-    static async cadastraAbrigoService(req) {
-        const { name, email, password, role = 'admin', profilePictureURL, telephone, about, city } = req.body
-        const dadosAbrigo = {
-            name, email, password, role, profilePictureURL, telephone, about, city
-        }
+    return AbrigoRepository.createAbrigoRepository(dadosAbrigo);
+  }
 
-        return AbrigoRepository.cadastraAbrigoRepository(dadosAbrigo)
-    }
+  static async updateAbrigoService(req) {
+    const { id } = req.params;
+    const novosDados = req.body;
 
-    static async atualizaDadosAbrigoService(req) {
-        const { id } = req.params;
-        const novosDados = req.body;
+    return AbrigoRepository.updateAbrigoRepository(novosDados, id);
+  }
 
-        return AbrigoRepository.atualizaDadosAbrigoRepository(novosDados, id)
-    }
+  static async deleteAbrigoService(req) {
+    const { id } = req.params;
 
-    static async deletaAbrigoService(req) {
-        const { id } = req.params;
+    return AbrigoRepository.deleteAbrigoRepository(id);
+  }
 
-        return AbrigoRepository.deletaAbrigoRepository(id);
-    }
-
-    static async deletaAdocoesService(req) {
-        const { id } = req.params;
-
-        return AbrigoRepository.deletaAdocoesRepository(id);
-    }
+  static async validateUserAbrigoService(req) {
+    const { email, password } = req.body;
+    return AbrigoRepository.validateUserAbrigoRepository(email, password);
+  }
 }
 
 module.exports = AbrigoService;

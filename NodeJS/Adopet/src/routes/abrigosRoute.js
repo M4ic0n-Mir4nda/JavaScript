@@ -1,14 +1,20 @@
-const {Router} = require("express");
-const AbrigoController = require("../api/controllers/AbrigoController");
-const RegisterUserValidations = require("../api/validations/RegisterUserValidations");
+const { Router } = require('express');
+const AbrigoController = require('../api/controllers/AbrigoController');
+const RegisterUserValidations = require('../api/validations/RegisterUserValidations');
+
 const router = Router();
 
 router
-    .get("/abrigos", AbrigoController.BuscaAbrigos)
-    .get("/abrigos/:id", AbrigoController.BuscaAbrigoPorId)
-    .post("/abrigos", RegisterUserValidations.validationBodyRules, RegisterUserValidations.checkRules, AbrigoController.cadastraAbrigo)
-    .put("/abrigos/:id", AbrigoController.atualizaDadosAbrigo)
-    .delete("/abrigos/:id", AbrigoController.deletaAbrigo)
-    .delete("/abrigos/adocao/:id", AbrigoController.deletaAdocoes)
+  .get('/abrigos', AbrigoController.getAllAbrigos)
+  .get('/abrigos/:id', AbrigoController.getAbrigoById)
+  .post('/abrigos', RegisterUserValidations.validationBodyRules, RegisterUserValidations.checkRules, AbrigoController.createAbrigo)
+  .post('/abrigos/login', AbrigoController.validateUserAbrigo)
+  .post('/abrigos/logout', (req, res) => {
+    res.clearCookie('x-access-token');
+    res.clearCookie('auth');
+    res.status(200).redirect('/');
+  })
+  .put('/abrigos/:id', AbrigoController.updateAbrigo)
+  .delete('/abrigos/:id', AbrigoController.deleteAbrigo);
 
 module.exports = router;

@@ -31,6 +31,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       photo: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       adopted_pet: {

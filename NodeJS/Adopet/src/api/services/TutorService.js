@@ -1,39 +1,44 @@
-const TutorRepository = require('../repositories/TutorRepository')
-const { validationResult } = require('express-validator/check')
+const TutorRepository = require('../repositories/TutorRepository');
 
 class TutorService {
+  static async getAllTutorsService() {
+    return TutorRepository.getAllTutorsRepository();
+  }
 
-    static async BuscaTutoresService() {
-        return TutorRepository.BuscaTutoresRepository();
-    }
+  static async getTutoByIdService(req) {
+    const { id } = req.params;
 
-    static async BuscaTutorPorIdService(req) {
-        const { id } = req.params;
+    return TutorRepository.getTutoByIdRepository(id);
+  }
 
-        return TutorRepository.BuscaTutorPordIdRepository(id);
-    }
+  static async createTutorService(req) {
+    const {
+      name, email, password, role = 'tutor', profilePictureURL, telephone, about, city,
+    } = req.body;
+    const dadosTutor = {
+      name, email, password, role, profilePictureURL, telephone, about, city,
+    };
 
-    static async cadastraTutorService(req) {
-        const { name, email, password, role = 'tutor', profilePictureURL, telephone, about, city } = req.body
-        const dadosTutor = {
-            name, email, password, role, profilePictureURL, telephone, about, city
-        }
+    return TutorRepository.createTutorRepository(dadosTutor);
+  }
 
-        return TutorRepository.cadastraTutorRepository(dadosTutor)
-    }
+  static async updateTutorService(req) {
+    const { id } = req.params;
+    const novosDados = req.body;
 
-    static async atualizaDadosTutorService(req) {
-        const { id } = req.params;
-        const novosDados = req.body;
+    return TutorRepository.updateTutorRepository(novosDados, id);
+  }
 
-        return TutorRepository.atualizaDadosTutorRepository(novosDados, id)
-    }
+  static async deleteTutorService(req) {
+    const { id } = req.params;
 
-    static async deletaTutorService(req) {
-        const { id } = req.params;
+    return TutorRepository.deleteTutorRepository(id);
+  }
 
-        return TutorRepository.deletaTutorRepository(id);
-    }
+  static async validateUserTutorService(req) {
+    const { email, password } = req.body;
+    return TutorRepository.validateUserTutorRepository(email, password);
+  }
 }
 
 module.exports = TutorService;

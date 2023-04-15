@@ -19,9 +19,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: 'Usuarios', key: 'id'}
       },
-      adoption_date: {
-        type: Sequelize.DATEONLY
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATEONLY
