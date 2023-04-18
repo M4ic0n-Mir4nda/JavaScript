@@ -2,9 +2,12 @@ const express = require("express");
 const routes = require("./routes/index")
 
 const app = express();
+const port = process.env.PORT
 
 routes(app)
 
-app.listen(3000, () => {
-    console.log(`servidor está rodando em http://localhost:3000`);
+app.listen(port, () => {
+    console.log(`servidor está rodando em http://localhost:${port}`);
 });
+
+module.exports = app;

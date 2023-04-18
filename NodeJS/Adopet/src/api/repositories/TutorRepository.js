@@ -18,10 +18,13 @@ class TutorRepository {
 
   static async getTutoByIdRepository(id) {
     try {
-      const user = await database.Usuarios.findOne({
+      const tutor = await database.Usuarios.findOne({
         where: { id: Number(id) },
       });
-      return user;
+      if (!tutor) {
+        return 'Não encontrado';
+      }
+      return tutor;
     } catch (err) {
       return 'Não encontrado';
     }
