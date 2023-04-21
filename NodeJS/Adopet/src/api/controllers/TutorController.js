@@ -13,7 +13,7 @@ class TutorController {
   static async getTutorById(req, res) {
     try {
       const tutor = await TutorService.getTutoByIdService(req);
-      return res.status(200).json(tutor);
+      return res.status(400).json(tutor);
     } catch (err) {
       return res.status(500).json({ message: err.message });
     }
