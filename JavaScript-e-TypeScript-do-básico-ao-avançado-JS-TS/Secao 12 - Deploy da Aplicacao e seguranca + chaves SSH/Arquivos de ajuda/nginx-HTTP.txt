@@ -1,0 +1,87 @@
+instalar: sudo apt install nginx;
+
+para saber se o nginx foi iniciado: sudo systemctl status nginx;
+
+Linhas que seria necessario trocar em outras aplicações em caso de dominio:
+
+	* server_name 35.199.66.164; > caso o meu site tenha algum outro dominio, colocar o dominio e caso n tenha coloque o IP do servidor OBS: Trocar todas as linhas que tenham um dominio
+
+	* proxy_pass http://localhost:3000; > trocar a porta referente a porta da aplicação
+
+server {
+	listen 80;
+	listen [::]:80;
+
+	# Add index.php to the list if you are using PHP
+	index index.html index.htm index.nginx-debian.html index.php;
+
+	server_name 35.199.66.164;
+
+	location = /favicon.ico { access_log off; log_not_found off; }
+  
+	location / {
+		proxy_pass http://localhost:3000;
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection 'upgrade';
+		proxy_set_header Host $host;
+		proxy_cache_bypass $http_upgrade;
+	}
+
+	# deny access to .htaccess files, if Apache's document root
+	# concurs with nginx's one
+	#
+	location ~ /\.ht {
+		deny all;
+	}
+
+	location ~ /\. {
+		access_log off;
+		log_not_found off;
+		deny all;
+	}
+
+	gzip on;
+	gzip_disable "msie6";
+
+	gzip_comp_level 6;
+	gzip_min_length 1100;
+	gzip_buffers 4 32k;
+	gzip_proxied any;
+	gzip_types
+		text/plain
+		text/css
+		text/js
+		text/xml
+		text/javascript
+		application/javascript
+		application/x-javascript
+		application/json
+		application/xml
+		application/rss+xml
+		image/svg+xml;
+
+	access_log off;
+	#access_log  /var/log/nginx/35.199.66.164-access.log;
+	error_log   /var/log/nginx/35.199.66.164-error.log;
+
+	#include /etc/nginx/common/protect.conf;
+}
+
+Comando para criar o arquivo nginx e colar a configuração acima;
+
+sudo nano /etc/nginx/sites-enlabed/eunaotenhodominio
+				   geralmente é colocado o nome do dominio caso tenha
+
+cd /etc/nginx/sites-enabled/ > para acessar a pasta;
+
+ls > para listar os arquivos dentro dela;
+
+sudo rm default;
+		nome do arquivo que sera removido
+
+sudo nginx -t: para saber se a aplicação esta tudo ok é necessario retornar as seguintes mensagem no terminal...
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+sudo systemctl restart nginx > para reiniciar o nginx e aplicar qualquer atualização feita

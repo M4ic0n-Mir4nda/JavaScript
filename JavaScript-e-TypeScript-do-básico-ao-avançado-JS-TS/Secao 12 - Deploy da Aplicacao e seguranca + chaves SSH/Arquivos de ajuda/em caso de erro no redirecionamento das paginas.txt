@@ -1,0 +1,33 @@
+Em caso de erro em direcionamento das paginas por conta de HTTP para HTTPS, a solução foi o seguinte;
+
+Ao invez de usar:
+
+app.use(helmet())
+
+use
+
+app.use(helmet({contentSecurityPolicy: false})) pois você configura a falta de ssl do helmet
+------------------------------
+apos isso suba as alterações para o repositorio do servidor cloud;
+
+Passos para enviar alterações ao servidor cloud da sua maquina local:
+git add . > para selecionar todos os arquivos
+git commit -am 'Mensagem que você quer adicionar'
+git push agenda master
+------------------------------
+entre na pasta que estão os arquivos do projeto no servidor cloud e digite;
+
+Na maquina do servidor;
+git pull agenda master > exemplo
+* do repositorio agenda 'puxe' os arquivos para a branch 'master'
+------------------------------
+liste o pm2 list para ver se esta 'online' e reinicie ele;
+
+pm2 stop 'Nome do processo'
+pm2 start 'Nome do processo'
+------------------------------
+apos isso vá até a pasta do nginx;
+
+cd /etc/nginx/sites-enabled/
+
+sudo systemctl restart nginx > para reiniciar o nginx e aplicar qualquer atualização feita

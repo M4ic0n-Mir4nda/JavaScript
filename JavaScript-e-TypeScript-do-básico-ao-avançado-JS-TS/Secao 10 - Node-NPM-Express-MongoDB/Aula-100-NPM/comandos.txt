@@ -1,0 +1,9 @@
+npm i express -E > deixar o express sempre na mesma versão
+npm i express -D > baixar como devdependencies
+npm i express --save-dev > baixar como devdependencies
+npm i express --save-prod > baixar como dependencies
+npm i express@versao desejada -E > baixar o pacote e nao atualizar a versão
+npm ls > lista os pacotes baixados
+npm outdated > para ver pacotes desatualizados
+npm install express@4.x > instala o pacote mais atual da "major" / 4 - Major. 0 - Minor. 0 - Patch
+npm update > para atualizar os pacotes

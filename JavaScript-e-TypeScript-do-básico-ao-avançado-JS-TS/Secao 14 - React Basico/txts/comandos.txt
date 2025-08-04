@@ -1,0 +1,1 @@
+npx create-react-app .(cria o projeto ja pasta atual), sem o ponto é necessario passar um nome para o projeto

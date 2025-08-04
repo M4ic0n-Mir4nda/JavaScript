@@ -1,0 +1,24 @@
+1° No terminal do servidor;
+mdkir repo-agenda > cria uma pasta
+git init --bare > cria um repositorio do git
+git remote add agenda 			/home/maicon/repo-agenda/ > adiciona um repositorio remoto
+	       nome do repositorio	caminho da pasta dentro do servidor
+------------------------------
+2° Agora na minha maquina local para enviar os arquivos ao servidor cloud;
+git remote add agenda 35.199.66.164:repo-agenda
+		      if do servidor:nome do repositorio
+------------------------------
+3° para enviar os arquivos;
+Passos para enviar alterações ao servidor cloud da sua maquina local:
+git add . > para selecionar todos os arquivos
+git commit -am 'Mensagem que você quer adicionar'
+git push agenda master
+*isso envia para o repositorio agenda no branch 'master' do servidor
+
+Ou dessa forma de fora do servidor(Maquina local) que é de um jeito direto do 4° passo: ssh <ipdoservidor> 'git -C caminho/da/pasta/do/projeto pull <remote> <branch>' - Pull de fora do servidor
+------------------------------
+4° Na maquina do servidor;
+git pull agenda master
+* do repositorio agenda 'puxe' os arquivos para a branch 'master'
+
+Obs: o repo-agenda é a pasta que sempre irá receber as novas features que você enviar e a pasta agenda será em tese a pasta de produção, então caso queira enviar a alteração para a pasta de produção é só fazer o 4° passo.

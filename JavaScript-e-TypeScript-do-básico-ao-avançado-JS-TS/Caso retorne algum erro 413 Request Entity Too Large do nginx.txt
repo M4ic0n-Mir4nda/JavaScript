@@ -1,0 +1,9 @@
+sudo nano /etc/nginx/nginx.conf
+
+Dentro da chave de 'http' coloque {
+	client_max_body_size 10M;
+}
+
+Após isso CTRL + O para salvar, Enter e CTRL + X para sair
+
+e sudo systemctl restart nginx: para reiniciar o nginx

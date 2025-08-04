@@ -1,0 +1,27 @@
+sudo npm i -g pm2
+pm2 start /home/foreb/agenda/server.js --name agenda
+pm2 list
+pm2 startup
+
+caso fique 'errored' é por conta de não ter o arquivo .env e as configurações nele, para resolver é so dar um;
+nano .env > no terminal para criar o arquivo, colocar tudo que deve ser configurado dentro dele
+1° CTRL + O para salvar
+2° Enter
+3° CTRL + X para fechar o arquivo .env
+
+para parar o processo é;
+pm2 stop Agenda(nome da aplicação que você definiu)
+
+Quando o servidor for reiniciado caso não tenha sido feita a seguinte configuração, a aplicação não vai iniciar automaticamente então para evitar isso digite;
+pm2 startup. Possivelmente o sistema ira te passar um caminho para ser configurado a inicialização da aplicação automaticamente ao reiniciar o servidor, o caminho sera como esse:
+sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u Maicon --hp /home/Maicon
+
+
+[PM2] Freeze a process list on reboot via: Para salvar os processos da lista no reboot
+$ pm2 save
+[PM2] Remove init script via: Para remover o script da inicialização
+$ pm2 unstartup systemd
+
+Para acessar a aplicação: curl http://localhost:3000 > caso não haja erro algum.
+
+

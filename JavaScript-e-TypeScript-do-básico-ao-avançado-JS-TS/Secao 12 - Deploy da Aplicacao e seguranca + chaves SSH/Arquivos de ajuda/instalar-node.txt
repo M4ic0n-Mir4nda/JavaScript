@@ -1,0 +1,9 @@
+sudo apt install curl -y
+curl -sL https://deb.nodesource.com/setup_18.x | sudo bash -
+sudo apt install nodejs -y
+
+versão que consegui instalar o node no servidor:
+
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+Obs: Esta versão do nodejs é depreciada, aparentemente nesta versão de ubuntu não é instalada as versões recentes do nodejs. Procurar pesquisar mais para ter certeza disso.
